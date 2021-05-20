@@ -40,7 +40,7 @@ export default function Categories() {
       <Card className="mt-2">
         <Slider {...slickSettings} className="px-4 pt-4 text-center">
           {categories.map((category, i) => (
-            <Category category={category} key={i} />
+            <Category {...category} key={i} />
           ))}
         </Slider>
       </Card>
