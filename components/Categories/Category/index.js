@@ -15,9 +15,7 @@ export default function Category(props) {
           />
         </a>
       </Link>
-      <div className="mb-2">
-        <span>{props.category.title}</span>
-      </div>
+      <p className="fw-bolder">{props.category.title}</p>
     </div>
   );
 }
