@@ -9,7 +9,9 @@ export default function ListRestaurants() {
     if (isError) {
       return (
         <Col>
-          <Alert variant="custom-red"></Alert>
+          <Alert variant="custom-red">
+            Não foi possível carregar as categorias no momento.
+          </Alert>
         </Col>
       );
     } else if (isLoading) {
