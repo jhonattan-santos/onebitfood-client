@@ -1,18 +1,10 @@
 import Details from './Details';
 import CategoryProducts from './CategoryProducts';
-import getRestaurant from '../../services/getRestaurant';
-import { useRouter } from 'next/router';
-import { Alert, Col, Spinner } from 'react-bootstrap';
-import Restaurants from '../../pages/restaurants';
+import { Alert, Col } from 'react-bootstrap';
 
-export default function DetailsRestaurant() {
-  const router = useRouter();
-  const { id } = router.query;
-
-  const { restaurant, isLoading, isError } = getRestaurant(id);
-
+export default function DetailsRestaurant(props) {
   function renderContent() {
-    if (isError) {
+    if (props.isError) {
       return (
         <Col>
           <Alert variant="custom-red">
@@ -21,24 +13,14 @@ export default function DetailsRestaurant() {
           </Alert>
         </Col>
       );
-    } else if (isLoading) {
-      return (
-        <Col>
-          <Spinner animation="border" />
-        </Col>
-      );
-    } else if (!restaurant) {
-      return (
-        <Col>Não foi possível carregar as informações deste restaurante...</Col>
-      );
     }
     return (
       <>
-        <Details {...restaurant} />
-        {restaurant.product_categories.map((product_category, i) => {
+        <Details {...props.restaurant} />
+        {props.restaurant.product_categories.map((product_category, i) => {
           return (
             <CategoryProducts
-              restaurant={restaurant}
+              restaurant={props.restaurant}
               {...product_category}
               key={i}
             />
