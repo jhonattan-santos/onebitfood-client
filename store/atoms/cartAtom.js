@@ -3,16 +3,13 @@ import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist();
 
-const addressState = atom({
-  key: 'addressState',
+const cartState = atom({
+  key: 'cartState',
   default: {
-    city: '',
-    neighborhood: '',
-    street: '',
-    number: '',
-    complement: '',
+    restaurant: {},
+    products: [],
   },
   effects_UNSTABLE: [persistAtom],
 });
 
-export default addressState;
+export default cartState;

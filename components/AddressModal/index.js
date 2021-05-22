@@ -7,7 +7,7 @@ import addressState from '../../store/atoms/addressAtom';
 import { useRouter } from 'next/router';
 
 export default function AddressModal(props) {
-  const [address, setAddress] = useRecoilState(addressState);
+  const [address] = useRecoilState(addressState);
   const router = useRouter();
 
   useEffect(() => {
